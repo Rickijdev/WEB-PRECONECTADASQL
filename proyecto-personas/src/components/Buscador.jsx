@@ -18,7 +18,7 @@ export default function Buscador({ onBuscar }) {
           type="search"
           value={termino}
           onChange={(e) => setTermino(e.target.value)}
-          placeholder="Escribe un nombre o apellido"
+          placeholder="Escribe nombre, DNI o número de acta"
         />
 
         <button type="submit">

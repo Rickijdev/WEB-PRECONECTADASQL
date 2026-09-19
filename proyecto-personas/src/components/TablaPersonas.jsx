@@ -6,6 +6,8 @@ export default function TablaPersonas({ personas }) {
           <tr>
             <th>Apellidos</th>
             <th>Nombres</th>
+            <th>DNI</th>
+            <th>Número de acta</th>
           </tr>
         </thead>
 
@@ -15,11 +17,13 @@ export default function TablaPersonas({ personas }) {
               <tr key={index}>
                 <td>{persona.apellidos}</td>
                 <td>{persona.nombres}</td>
+                <td>{persona.dni}</td>
+                <td>{persona.numeroActa}</td>
               </tr>
             ))
           ) : (
             <tr>
-              <td colSpan="2">No se encontraron personas.</td>
+              <td colSpan="4">No se encontraron personas.</td>
             </tr>
           )}
         </tbody>

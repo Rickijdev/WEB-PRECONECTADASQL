@@ -5,12 +5,12 @@ import TablaPersonas from './components/TablaPersonas.jsx';
 import './styles/main.css';
 
 const integrantes = [
-  { apellidos: 'Burgos Mendoza', nombres: 'Cristian Albert' },
-  { apellidos: 'Benites Alejandria', nombres: 'Cesar Leandro' },
-  { apellidos: 'Carranza Vargas', nombres: 'Kevin Alexis' },
-  { apellidos: 'Castillo Cisneros', nombres: 'Kiara Marley' },
-  { apellidos: 'Julca Davila', nombres: 'Ricky Gilbert' },
-  { apellidos: 'Silvestre Ferrer', nombres: 'Jeffran Alberto' },
+  { apellidos: 'Burgos Mendoza', nombres: 'Cristian Albert', dni: '', numeroActa: '' },
+  { apellidos: 'Benites Alejandria', nombres: 'Cesar Leandro', dni: '', numeroActa: '' },
+  { apellidos: 'Carranza Vargas', nombres: 'Kevin Alexis', dni: '', numeroActa: '' },
+  { apellidos: 'Castillo Cisneros', nombres: 'Kiara Marley', dni: '', numeroActa: '' },
+  { apellidos: 'Julca Davila', nombres: 'Ricky Gilbert', dni: '', numeroActa: '' },
+  { apellidos: 'Silvestre Ferrer', nombres: 'Jeffran Alberto', dni: '', numeroActa: '' },
 ];
 
 export default function App() {
@@ -24,11 +24,11 @@ export default function App() {
       return;
     }
 
-    const resultados = integrantes.filter((persona) =>
-      `${persona.nombres} ${persona.apellidos}`
-        .toLowerCase()
-        .includes(texto)
-    );
+   const resultados = integrantes.filter((persona) =>
+  `${persona.nombres} ${persona.apellidos} ${persona.dni} ${persona.numeroActa}`
+    .toLowerCase()
+    .includes(texto)
+);
 
     setPersonas(resultados);
   };
