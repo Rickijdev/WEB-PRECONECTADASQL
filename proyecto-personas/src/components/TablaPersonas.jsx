@@ -1,4 +1,4 @@
-export default function TablaPersonas({ personas }) {
+export default function TablaPersonas({ personas, onEditar }) {
   return (
     <div className="p2-table-wrapper">
       <table className="p2-table">
@@ -8,6 +8,7 @@ export default function TablaPersonas({ personas }) {
             <th>Nombres</th>
             <th>DNI</th>
             <th>Número de acta</th>
+            <th>Acción</th>
           </tr>
         </thead>
 
@@ -19,11 +20,19 @@ export default function TablaPersonas({ personas }) {
                 <td>{persona.nombres}</td>
                 <td>{persona.dni}</td>
                 <td>{persona.numeroActa}</td>
+                <td>
+                  <button
+                    type="button"
+                    onClick={() => onEditar(persona)}
+                  >
+                    Editar
+                  </button>
+                </td>
               </tr>
             ))
           ) : (
             <tr>
-              <td colSpan="4">No se encontraron personas.</td>
+              <td colSpan="5">No se encontraron personas.</td>
             </tr>
           )}
         </tbody>
@@ -31,3 +40,4 @@ export default function TablaPersonas({ personas }) {
     </div>
   );
 }
+

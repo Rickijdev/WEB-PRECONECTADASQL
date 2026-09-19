@@ -181,10 +181,364 @@ body #root { width: 100%; max-width: none; padding: 0; margin: 0; text-align: le
   .oa-container { width: calc(100% - 32px); }.oa-hero h1 { font-size: 44px; }.oa-archive-art { height: 278px; }.oa-file { height: 202px; width: 82%; }.oa-file-back { left: 27px; }.oa-file-middle { left: 20px; }.oa-file-front { left: 8px; top: 65px; padding: 16px 18px; }.oa-file-title { font-size: 29px; }.oa-file-bottom { margin-top: 19px; }.oa-file-top { font-size: 6px; }.oa-barcode { width: 40px; height: 15px; }.oa-art-orbit { width: 220px; height: 220px; }.oa-file-middle .oa-file-tab { left: 115px; width: 87px; }
   .oa-module-heading > div { gap: 8px; }.oa-module h3 { font-size: 11px; }.oa-owner { font-size: 6px; }.oa-module-number { width: 21px; height: 22px; }.oa-navigation a { font-size: 10px; }
 }
-
-
 @media (prefers-reduced-motion: reduce) {
   html:root {
     scroll-behavior: auto;
+  }
+}
+
+/* =========================================================
+   FORMULARIO DE REGISTRO DE ACTAS
+   ========================================================= */
+
+.oa-registro-form {
+  width: 100%;
+}
+
+.oa-form-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.oa-form-field {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+
+.oa-form-field-wide {
+  grid-column: 1 / -1;
+}
+
+.oa-form-field label {
+  font-family: Consolas, "Courier New", monospace;
+  font-size: 8px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: #8b8173;
+}
+
+.oa-form-field input {
+  width: 100%;
+  min-height: 42px;
+  padding: 10px 12px;
+  border: 1px solid #d3c8b8;
+  background: #fffdf8;
+  color: #262521;
+  font-family: Arial, "Segoe UI", sans-serif;
+  font-size: 12px;
+  outline: none;
+  transition: border-color .2s ease, box-shadow .2s ease;
+}
+
+.oa-form-field input::placeholder {
+  color: #b2a898;
+}
+
+.oa-form-field input:focus {
+  border-color: #c74b32;
+  box-shadow: 0 0 0 2px #c74b3220;
+}
+
+.oa-form-actions {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px;
+  margin-top: 22px;
+  padding-top: 16px;
+  border-top: 1px solid #ded5c8;
+}
+
+.oa-form-actions > span {
+  font-family: Consolas, "Courier New", monospace;
+  font-size: 7px;
+  letter-spacing: 1px;
+  color: #958873;
+}
+
+.oa-form-actions button {
+  display: inline-flex;
+  align-items: center;
+  gap: 18px;
+  min-height: 40px;
+  padding: 10px 16px;
+  border: 0;
+  background: #c74b32;
+  color: #fff8ed;
+  font-family: Arial, "Segoe UI", sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background .2s ease, transform .2s ease;
+}
+
+.oa-form-actions button:hover {
+  background: #a93e2a;
+}
+
+.oa-form-actions button:active {
+  transform: translateY(1px);
+}
+
+.oa-form-actions button span {
+  font-size: 17px;
+  line-height: 1;
+}
+
+/* Adaptación para celular */
+
+@media (max-width: 650px) {
+  .oa-form-grid {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+
+  .oa-form-field-wide {
+    grid-column: auto;
+  }
+
+  .oa-form-actions {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .oa-form-actions button {
+    width: 100%;
+    justify-content: space-between;
+  }
+}
+
+/* =========================================================
+   MODAL DE EDICIÓN DE ACTAS
+   ========================================================= */
+
+.oa-modal-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  background: #26252180;
+  backdrop-filter: blur(2px);
+}
+
+.oa-modal {
+  width: min(760px, 100%);
+  max-height: calc(100vh - 48px);
+  overflow-y: auto;
+  background: #faf8f2;
+  border: 1px solid #bdb2a1;
+  box-shadow: 0 24px 60px #26252130;
+  animation: oa-modal-aparecer .2s ease-out;
+}
+
+.oa-modal-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 22px 24px 19px;
+  border-bottom: 1px solid #d9d0c2;
+  border-top: 3px solid var(--oa-orange);
+}
+
+.oa-modal-kicker {
+  display: block;
+  margin-bottom: 7px;
+  font-family: Consolas, "Courier New", monospace;
+  font-size: 8px;
+  letter-spacing: 1.3px;
+  color: #8b8173;
+}
+
+.oa-modal-header h2 {
+  font-size: 27px;
+  font-weight: 500;
+  letter-spacing: -1px;
+  line-height: 1.1;
+}
+
+.oa-modal-header h2 span {
+  color: var(--oa-orange);
+}
+
+.oa-modal-close {
+  width: 32px;
+  height: 32px;
+  flex-shrink: 0;
+  border: 1px solid #d2c7b7;
+  background: #f4f1e9;
+  color: #655e52;
+  font-size: 21px;
+  line-height: 1;
+  cursor: pointer;
+  transition: background .2s ease, color .2s ease, border-color .2s ease;
+}
+
+.oa-modal-close:hover {
+  border-color: var(--oa-orange);
+  background: #fffdf8;
+  color: var(--oa-orange);
+}
+
+.oa-modal form {
+  padding: 22px 24px 24px;
+}
+
+.oa-modal-form-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.oa-modal-field {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+
+.oa-modal-field-wide {
+  grid-column: 1 / -1;
+}
+
+.oa-modal-field label {
+  font-family: Consolas, "Courier New", monospace;
+  font-size: 8px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: #8b8173;
+}
+
+.oa-modal-field input {
+  width: 100%;
+  min-height: 42px;
+  padding: 10px 12px;
+  border: 1px solid #d3c8b8;
+  background: #fffdf8;
+  color: #262521;
+  font-family: Arial, "Segoe UI", sans-serif;
+  font-size: 12px;
+  outline: none;
+  transition: border-color .2s ease, box-shadow .2s ease;
+}
+
+.oa-modal-field input:focus {
+  border-color: var(--oa-orange);
+  box-shadow: 0 0 0 2px #c74b3220;
+}
+
+.oa-modal-actions {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 22px;
+  padding-top: 16px;
+  border-top: 1px solid #ded5c8;
+}
+
+.oa-modal-cancel,
+.oa-modal-save {
+  min-height: 40px;
+  padding: 10px 17px;
+  font-family: Arial, "Segoe UI", sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background .2s ease, color .2s ease, border-color .2s ease, transform .2s ease;
+}
+
+.oa-modal-cancel {
+  border: 1px solid #cfc3b2;
+  background: #f4f1e9;
+  color: #655e52;
+}
+
+.oa-modal-cancel:hover {
+  border-color: #a99c89;
+  background: #ebe6dc;
+}
+
+.oa-modal-save {
+  display: inline-flex;
+  align-items: center;
+  gap: 18px;
+  border: 0;
+  background: var(--oa-orange);
+  color: #fff8ed;
+}
+
+.oa-modal-save:hover {
+  background: #a93e2a;
+}
+
+.oa-modal-save:active,
+.oa-modal-cancel:active {
+  transform: translateY(1px);
+}
+
+.oa-modal-save span {
+  font-size: 17px;
+  line-height: 1;
+}
+
+@keyframes oa-modal-aparecer {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Adaptación del modal para celular */
+
+@media (max-width: 650px) {
+  .oa-modal-overlay {
+    padding: 14px;
+    align-items: flex-start;
+  }
+
+  .oa-modal {
+    max-height: calc(100vh - 28px);
+  }
+
+  .oa-modal-header {
+    padding: 19px 18px 16px;
+  }
+
+  .oa-modal-header h2 {
+    font-size: 24px;
+  }
+
+  .oa-modal form {
+    padding: 18px;
+  }
+
+  .oa-modal-form-grid {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+
+  .oa-modal-field-wide {
+    grid-column: auto;
+  }
+
+  .oa-modal-actions {
+    flex-direction: column-reverse;
+    align-items: stretch;
+  }
+
+  .oa-modal-cancel,
+  .oa-modal-save {
+    width: 100%;
+    justify-content: space-between;
   }
 }

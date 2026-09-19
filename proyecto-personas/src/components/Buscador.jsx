@@ -17,7 +17,14 @@ export default function Buscador({ onBuscar }) {
           id="buscar-persona"
           type="search"
           value={termino}
-          onChange={(e) => setTermino(e.target.value)}
+          onChange={(e) => {
+            const nuevoTermino = e.target.value;
+            setTermino(nuevoTermino);
+
+            if (nuevoTermino === '') {
+              onBuscar?.('');
+            }
+          }}
           placeholder="Escribe nombre, DNI o número de acta"
         />
 
