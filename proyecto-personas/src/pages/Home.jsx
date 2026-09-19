@@ -22,10 +22,8 @@ export default function Home({ buscador, tablaPersonas, formularioPersona, modal
       <main id="contenido" className="oa-container" tabIndex={-1}>
         <section className="oa-hero" aria-labelledby="oa-title">
           <div className="oa-hero-copy">
-            <p className="oa-kicker"><span className="oa-kicker-square" /> LABORATORIO ACADÉMICO <span className="oa-kicker-divider">/</span> UNT</p>
+            <p className="oa-kicker"><span className="oa-kicker-square" /> PROYECTO OG.ARCHIVOS <span className="oa-kicker-divider">/</span> UNT</p>
             <h1 id="oa-title">Organización<br /><em>de archivos.</em></h1>
-            <p className="oa-hero-description">Detrás de cada nombre, un registro.<br />Detrás de cada registro, una forma de organizar la información.</p>
-            <a className="oa-text-link" href="#registros">Explorar el laboratorio <Icono nombre="arriba" /></a>
           </div>
 
           {/* Ilustración decorativa hecha con CSS. No representa una tabla de datos. */}
@@ -45,15 +43,14 @@ export default function Home({ buscador, tablaPersonas, formularioPersona, modal
         </section>
 
         <div className="oa-project-facts" aria-label="Información del curso">
-          <div><span>ASIGNATURA</span><strong>Organización de Archivos</strong></div>
+          <div><span>CURSO</span><strong>Organización de Archivos</strong></div>
           <div><span>DOCENTE</span><strong>Max Castro</strong></div>
-          <div><span>INSTITUCIÓN</span><strong>Universidad Nacional de Trujillo</strong></div>
+          <div><span>UNIVERSIDAD</span><strong>Universidad Nacional de Trujillo</strong></div>
           <a href="#equipo" className="oa-team-shortcut"><span>EQUIPO DE TRABAJO</span><strong>06 integrantes <Icono nombre="arriba" /></strong></a>
         </div>
 
         <section className="oa-laboratory" id="registros" aria-labelledby="oa-lab-title">
-          <div className="oa-section-topline"><p className="oa-section-index">01 / LABORATORIO</p><span className="oa-stage-label">ESTRUCTURA · PERSONA 1</span></div>
-          <div className="oa-section-heading"><h2 id="oa-lab-title">Mesa de trabajo<span>.</span></h2><p>Un espacio para cada componente.<br /> Una estructura para integrarlos.</p></div>
+          <div className="oa-section-heading"><h2 id="oa-lab-title">Mesa de trabajo<span>.</span></h2><p></p></div>
           <div className="oa-workspace-grid">
             <section className="oa-module oa-query-module" aria-labelledby="oa-query-title">
               <header className="oa-module-heading"><div><span className="oa-module-number">A</span><h3 id="oa-query-title">Consulta de personas</h3></div><span className="oa-owner">PERSONA 2</span></header>
@@ -93,10 +90,10 @@ export default function Home({ buscador, tablaPersonas, formularioPersona, modal
 
         <section className="oa-project" id="proyecto" aria-labelledby="oa-project-title">
           <div className="oa-project-left"><p className="oa-section-index">03 / EL PROYECTO</p><h2 id="oa-project-title">Del registro<br /><em>a la consulta.</em></h2></div>
-          <div className="oa-project-right"><span className="oa-project-symbol" aria-hidden="true">[ SQL ]</span><p>Un laboratorio para comprobar cómo se consulta, agrega, modifica y elimina información de una base de datos de nombres y apellidos.</p><p className="oa-project-secondary">La estructura visual reúne los componentes del equipo para su posterior conexión con SQL.</p><span className="oa-project-label">ORGANIZACIÓN DE ARCHIVOS · UNT</span></div>
+          <div className="oa-project-right"><span className="oa-project-symbol" aria-hidden="true">[ SQL ]</span><p>Proyecto para consulta de Nombres y Apellidos.</p><p className="oa-project-secondary">La estructura visual reúne los componentes del equipo para su posterior conexión con SQL.</p><span className="oa-project-label">ORGANIZACIÓN DE ARCHIVOS · UNT</span></div>
         </section>
       </main>
-      <footer className="oa-footer oa-container"><a className="oa-footer-brand" href="#inicio">ArchivoLab<span>.</span></a><span>Proyecto académico / Universidad Nacional de Trujillo</span><a className="oa-back-to-top" href="#inicio">Volver al inicio <Icono nombre="arriba" /></a></footer>
+      <footer className="oa-footer oa-container"><a className="oa-footer-brand" href="#inicio">ProyectoDeUnidad<span>.</span></a><span>Proyecto académico / Universidad Nacional de Trujillo</span><a className="oa-back-to-top" href="#inicio">Volver al inicio <Icono nombre="arriba" /></a></footer>
     </div>
   );
 }
