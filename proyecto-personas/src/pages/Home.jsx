@@ -1,99 +1,104 @@
+import React from 'react';
 import Navbar from '../components/Navbar.jsx';
+import Icono from '../components/Icono.jsx';
 
-// PERSONA 1: distribución de la página.
-// Estas props reciben JSX, por ejemplo: buscador={<Buscador />}.
-// Sin una prop, mostramos un espacio reservado en su lugar.
-// Así no importamos archivos todavía vacíos o pendientes de otras ramas.
+const integrantes = [
+  { apellidos: 'Burgos Mendoza', nombres: 'Cristian Albert' },
+  { apellidos: 'Benites Alejandria', nombres: 'Cesar Leandro' },
+  { apellidos: 'Carranza Vargas', nombres: 'Kevin Alexis' },
+  { apellidos: 'Castillo Cisneros', nombres: 'Kiara Marley' },
+  { apellidos: 'Julca Davila', nombres: 'Ricky Gilbert' },
+  { apellidos: 'Silvestre Ferrer', nombres: 'Jeffran Alberto' },
+];
+
+// PERSONA 1: identidad visual, estructura e integración.
+// Las props conservan el acuerdo de la entrega anterior.
+// No se implementan buscador, tabla, formularios ni operaciones sobre registros.
 export default function Home({ buscador, tablaPersonas, formularioPersona, modalEditar }) {
   return (
-    <div className="p1-shell" id="inicio">
-      <a className="p1-skip-link" href="#contenido">Saltar al contenido</a>
+    <div className="oa-app" id="inicio">
+      <a className="oa-skip" href="#contenido">Saltar al contenido</a>
       <Navbar />
-
-      <main id="contenido" className="p1-container p1-main" tabIndex={-1}>
-        <section className="p1-hero" aria-labelledby="titulo-principal">
-          <div className="p1-hero-copy">
-            <p className="p1-eyebrow">DIRECTORIO DE PERSONAS</p>
-            <h1 id="titulo-principal">Tus registros,<br /><span>en un solo lugar.</span></h1>
-            <p className="p1-intro">
-              Un espacio para consultar nombres y apellidos y mantener
-              organizada la información de las personas.
-            </p>
-            <a className="p1-primary-link" href="#directorio">
-              Ir al directorio <span aria-hidden="true">↗</span>
-            </a>
+      <main id="contenido" className="oa-container" tabIndex={-1}>
+        <section className="oa-hero" aria-labelledby="oa-title">
+          <div className="oa-hero-copy">
+            <p className="oa-kicker"><span className="oa-kicker-square" /> PROYECTO OG.ARCHIVOS <span className="oa-kicker-divider">/</span> UNT</p>
+            <h1 id="oa-title">Organización<br /><em>de archivos.</em></h1>
           </div>
-          <div className="p1-hero-note">
-            <span className="p1-note-line" aria-hidden="true" />
-            <p>Información clara.<br />Gestión sencilla.</p>
-            <span>Consulta · Registro · Actualización</span>
+
+          {/* Ilustración decorativa hecha con CSS. No representa una tabla de datos. */}
+          <div className="oa-archive-art" aria-hidden="true">
+            <span className="oa-art-label">ESTUDIO DE REGISTROS / OA</span>
+            <div className="oa-art-orbit" />
+            <div className="oa-file oa-file-back"><span className="oa-file-tab">ARCHIVO</span></div>
+            <div className="oa-file oa-file-middle"><span className="oa-file-tab">ÍNDICE</span><span className="oa-file-range">A—Z</span></div>
+            <div className="oa-file oa-file-front">
+              <span className="oa-file-tab">PERSONAS</span>
+              <div className="oa-file-top"><span>ARCHIVOLAB</span><span>OA / 01</span></div>
+              <div className="oa-file-title">Nombres<br /><i>&</i> apellidos<span>.</span></div>
+              <div className="oa-file-bottom"><span>EL ORDEN COMIENZA AQUÍ</span><span className="oa-barcode" /></div>
+            </div>
+            <span className="oa-art-footnote">INFORMACIÓN CON ESTRUCTURA.</span>
           </div>
         </section>
 
-        <div className="p1-workspace">
-          <section id="directorio" className="p1-panel" aria-labelledby="titulo-directorio">
-            <div className="p1-panel-heading">
-              <div>
-                <p className="p1-eyebrow">01 / CONSULTA</p>
-                <h2 id="titulo-directorio">Directorio</h2>
-              </div>
-              <span className="p1-section-mark" aria-hidden="true">↗</span>
-            </div>
-            <p className="p1-section-description">Encuentra la información de una persona.</p>
-
-            {/* PERSONA 2: aquí se muestra <Buscador />. */}
-            <div className="p1-search-slot">
-              {buscador ?? <EspacioReservado titulo="Buscador" />}
-            </div>
-
-            {/* PERSONA 2: aquí se muestra <TablaPersonas personas={personas} />.
-                TODO BACKEND: proporcionar los resultados del GET desde App.
-                No cargar toda la base en el navegador; acordar paginación. */}
-            <div className="p1-table-slot">
-              {tablaPersonas ?? <EspacioReservado titulo="Tabla de personas" amplio />}
-            </div>
-          </section>
-
-          <section id="registro" className="p1-panel p1-register-panel" aria-labelledby="titulo-registro">
-            <div className="p1-panel-heading">
-              <div>
-                <p className="p1-eyebrow">02 / REGISTRO</p>
-                <h2 id="titulo-registro">Nueva persona</h2>
-              </div>
-              <span className="p1-section-mark" aria-hidden="true">+</span>
-            </div>
-            <p className="p1-section-description">Agrega nombres y apellidos al directorio.</p>
-
-            {/* PERSONA 3: aquí se muestra <FormularioPersona />.
-                TODO BACKEND: conectar el envío con POST; actualizar la vista
-                y mostrar éxito solo después de confirmar la respuesta. */}
-            {formularioPersona ?? <EspacioReservado titulo="Formulario de registro" amplio />}
-          </section>
+        <div className="oa-project-facts" aria-label="Información del curso">
+          <div><span>CURSO</span><strong>Organización de Archivos</strong></div>
+          <div><span>DOCENTE</span><strong>Max Castro</strong></div>
+          <div><span>UNIVERSIDAD</span><strong>Universidad Nacional de Trujillo</strong></div>
+          <a href="#equipo" className="oa-team-shortcut"><span>EQUIPO DE TRABAJO</span><strong>06 integrantes <Icono nombre="arriba" /></strong></a>
         </div>
+
+        <section className="oa-laboratory" id="registros" aria-labelledby="oa-lab-title">
+          <div className="oa-section-heading"><h2 id="oa-lab-title">Mesa de trabajo<span>.</span></h2><p></p></div>
+          <div className="oa-workspace-grid">
+            <section className="oa-module oa-query-module" aria-labelledby="oa-query-title">
+              <header className="oa-module-heading"><div><span className="oa-module-number">A</span><h3 id="oa-query-title">Consulta de personas</h3></div><span className="oa-owner">PERSONA 2</span></header>
+              <div className="oa-module-body">
+                {/* PERSONA 2: integrar su componente Buscador en este espacio. */}
+                <div className="oa-slot">{buscador ?? <EspacioDeIntegracion numero="01" titulo="Buscador" />}</div>
+                {/* PERSONA 2: integrar su TablaPersonas con las props acordadas. */}
+                <div className="oa-slot">{tablaPersonas ?? <EspacioDeIntegracion numero="02" titulo="Tabla de personas" amplio />}</div>
+              </div>
+            </section>
+            <section className="oa-module oa-entry-module" aria-labelledby="oa-entry-title">
+              <header className="oa-module-heading"><div><span className="oa-module-number">B</span><h3 id="oa-entry-title">Registro de personas</h3></div><span className="oa-owner">PERSONA 3</span></header>
+              <div className="oa-module-body oa-form-area">
+                {/* PERSONA 3: integrar su FormularioPersona en este espacio. */}
+                {formularioPersona ?? <EspacioDeIntegracion numero="03" titulo="Formulario de registro" amplio />}
+              </div>
+            </section>
+          </div>
+          <p className="oa-integration-note"><span /> Áreas reservadas para los componentes del equipo.</p>
+          {/* PERSONA 3: integrar su ModalEditar cuando esté disponible. */}
+          {modalEditar}
+        </section>
+
+        <section className="oa-team-section" id="equipo" aria-labelledby="oa-team-title">
+          <p className="oa-section-index">02 / EQUIPO DE TRABAJO</p>
+          <div className="oa-team-heading"><h2 id="oa-team-title">Seis personas.<br /><em>Un mismo proyecto.</em></h2><div className="oa-teacher-note"><span>BAJO LA DIRECCIÓN DEL DOCENTE</span><strong>Max Castro</strong></div></div>
+          <ol className="oa-team-grid" aria-label="Integrantes del proyecto">
+            {integrantes.map((persona, indice) => (
+              <li className="oa-member" key={persona.apellidos}>
+                <span className="oa-member-index" aria-hidden="true">0{indice + 1}</span>
+                <div><h3>{persona.apellidos}</h3><p>{persona.nombres}</p></div>
+                <span className="oa-member-marker" aria-hidden="true" />
+              </li>
+            ))}
+          </ol>
+        </section>
+
+        <section className="oa-project" id="proyecto" aria-labelledby="oa-project-title">
+          <div className="oa-project-left"><p className="oa-section-index">03 / EL PROYECTO</p><h2 id="oa-project-title">Del registro<br /><em>a la consulta.</em></h2></div>
+          <div className="oa-project-right"><span className="oa-project-symbol" aria-hidden="true">[ SQL ]</span><p>Proyecto para consulta de Nombres y Apellidos.</p><p className="oa-project-secondary">La estructura visual reúne los componentes del equipo para su posterior conexión con SQL.</p><span className="oa-project-label">ORGANIZACIÓN DE ARCHIVOS · UNT</span></div>
+        </section>
       </main>
-
-      {/* PERSONA 3: insertar aquí su ModalEditar cuando esté integrado.
-          TODO BACKEND: conectar editar/eliminar con PUT/PATCH y DELETE.
-          Sus props y la apertura/cierre se acordarán al unir el componente. */}
-      {modalEditar}
-
-      <footer className="p1-footer">
-        <div className="p1-container p1-footer-content">
-          <span>Personas · Proyecto académico</span>
-          <a href="#inicio">Volver al inicio <span aria-hidden="true">↑</span></a>
-        </div>
-      </footer>
+      <footer className="oa-footer oa-container"><a className="oa-footer-brand" href="#inicio">ProyectoDeUnidad<span>.</span></a><span>Proyecto académico / Universidad Nacional de Trujillo</span><a className="oa-back-to-top" href="#inicio">Volver al inicio <Icono nombre="arriba" /></a></footer>
     </div>
   );
 }
 
-// Solo es una tarjeta de maqueta; no sustituye los componentes del equipo.
-function EspacioReservado({ titulo, amplio = false }) {
-  return (
-    <div className={`p1-placeholder${amplio ? ' p1-placeholder-large' : ''}`}>
-      <span className="p1-placeholder-symbol" aria-hidden="true">+</span>
-      <strong>{titulo}</strong>
-      <span>Espacio reservado</span>
-    </div>
-  );
+// Estas áreas son contenedores visuales, sin datos ni controles de los compañeros.
+function EspacioDeIntegracion({ numero, titulo, amplio = false }) {
+  return <div className={`oa-reserved${amplio ? ' oa-reserved-large' : ''}`}><span className="oa-slot-reference">ESPACIO {numero}</span><strong>{titulo}</strong><span className="oa-slot-pending">Pendiente de integración</span><span className="oa-slot-corner" aria-hidden="true" /></div>;
 }
