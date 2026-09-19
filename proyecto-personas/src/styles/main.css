@@ -101,3 +101,4 @@ body #root { width: 100%; max-width: none; margin: 0; padding: 0; text-align: le
 @media (prefers-reduced-motion: reduce) {
   html:root { scroll-behavior: auto; }
 }
+@import './persona2.css';
