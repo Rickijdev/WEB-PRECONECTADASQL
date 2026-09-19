@@ -1,3 +1,4 @@
+@import './persona2.css';
 /* ARCHIVOLAB · PERSONA 1
    Diseño inspirado en fichas, índices y carpetas de archivo.
    Solo estructura, navegación, información académica y áreas de integración. */
@@ -180,7 +181,7 @@ body #root { width: 100%; max-width: none; padding: 0; margin: 0; text-align: le
   .oa-container { width: calc(100% - 32px); }.oa-hero h1 { font-size: 44px; }.oa-archive-art { height: 278px; }.oa-file { height: 202px; width: 82%; }.oa-file-back { left: 27px; }.oa-file-middle { left: 20px; }.oa-file-front { left: 8px; top: 65px; padding: 16px 18px; }.oa-file-title { font-size: 29px; }.oa-file-bottom { margin-top: 19px; }.oa-file-top { font-size: 6px; }.oa-barcode { width: 40px; height: 15px; }.oa-art-orbit { width: 220px; height: 220px; }.oa-file-middle .oa-file-tab { left: 115px; width: 87px; }
   .oa-module-heading > div { gap: 8px; }.oa-module h3 { font-size: 11px; }.oa-owner { font-size: 6px; }.oa-module-number { width: 21px; height: 22px; }.oa-navigation a { font-size: 10px; }
 }
-@import './persona2.css';
+
 
 @media (prefers-reduced-motion: reduce) {
   html:root {
