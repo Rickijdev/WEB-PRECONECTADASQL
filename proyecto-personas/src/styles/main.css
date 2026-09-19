@@ -1,0 +1,103 @@
+/* PERSONA 1: diseño de la estructura. Las clases p1- evitan colisiones.
+   Las personas 2 y 3 pueden usar sus propias clases para sus componentes. */
+html:root {
+  font-family: Inter, "Segoe UI", Arial, sans-serif;
+  color: #19312d;
+  background: #f4f6f3;
+  color-scheme: light;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  scroll-behavior: smooth;
+}
+
+/* Neutraliza las reglas habituales de la plantilla Vite en index.css. */
+html body {
+  display: block;
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+  place-items: normal;
+  color: #19312d;
+  background: #f4f6f3;
+}
+body #root { width: 100%; max-width: none; margin: 0; padding: 0; text-align: left; }
+.p1-shell, .p1-shell *, .p1-shell *::before, .p1-shell *::after { box-sizing: border-box; }
+.p1-shell { min-height: 100vh; display: flex; flex-direction: column; line-height: 1.5; }
+.p1-shell a { text-decoration: none; }
+.p1-shell a:focus-visible { outline: 3px solid #c37a22; outline-offset: 5px; }
+.p1-container { width: min(1180px, calc(100% - 64px)); margin-inline: auto; }
+.p1-header { border-bottom: 1px solid #dce4de; background: #fbfcfa; }
+.p1-navbar { min-height: 90px; display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+.p1-brand { display: inline-flex; align-items: center; gap: 11px; color: #19312d; font-size: 26px; font-weight: 750; letter-spacing: -1px; }
+.p1-brand-icon { display: grid; place-items: center; width: 39px; height: 39px; border-radius: 11px; background: #235e4c; color: #fff; }
+.p1-brand-icon svg { width: 24px; height: 24px; }
+.p1-brand-dot { color: #317a60; }
+.p1-nav-links { display: flex; align-items: center; gap: 28px; }
+.p1-nav-links a { color: #4c5f58; font-size: 14px; font-weight: 600; }
+.p1-nav-links a:hover { color: #174633; }
+.p1-nav-links .p1-nav-register { padding: 11px 17px; border: 1px solid #cbd9ce; border-radius: 7px; color: #254e3e; }
+.p1-nav-links .p1-nav-register:hover { background: #e8eee7; }
+.p1-main { flex: 1; padding-bottom: 56px; }
+.p1-hero { display: flex; align-items: center; justify-content: space-between; gap: 48px; padding-block: 60px 52px; }
+.p1-eyebrow { margin: 0 0 14px; color: #597064; font-size: 11px; font-weight: 750; letter-spacing: 1.8px; }
+.p1-hero h1 { margin: 0; font-size: clamp(36px, 4.5vw, 58px); line-height: 1.08; font-weight: 650; letter-spacing: -2px; }
+.p1-hero h1 span { color: #376d55; }
+.p1-intro { max-width: 490px; margin: 22px 0 26px; font-size: 16px; line-height: 1.7; color: #5a6c62; }
+.p1-primary-link { display: inline-flex; align-items: center; gap: 32px; padding: 13px 19px; border-radius: 7px; color: #fff; background: #235e4c; font-size: 14px; font-weight: 600; }
+.p1-primary-link:hover { color: #fff; background: #194735; }
+.p1-primary-link span { font-size: 20px; line-height: 1; }
+.p1-hero-note { flex: 0 0 275px; padding: 16px 0 16px 32px; border-left: 1px solid #cbd7cc; }
+.p1-note-line { display: block; width: 35px; height: 4px; background: #9fae68; margin-bottom: 25px; }
+.p1-hero-note p { margin: 0 0 18px; font-size: 25px; line-height: 1.35; letter-spacing: -.6px; }
+.p1-hero-note > span:last-child { color: #5c6b60; font-size: 12px; }
+.p1-workspace { display: grid; grid-template-columns: minmax(0, 1.7fr) minmax(0, 1fr); align-items: start; gap: 24px; }
+.p1-panel { min-width: 0; padding: 28px; border: 1px solid #dce4dd; border-radius: 13px; background: #fff; scroll-margin-top: 24px; }
+.p1-register-panel { background: #fcfdf9; }
+.p1-panel-heading { display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+.p1-panel-heading .p1-eyebrow { font-size: 10px; letter-spacing: 1.3px; margin-bottom: 7px; }
+.p1-panel h2 { margin: 0; font-size: 23px; line-height: 1.25; letter-spacing: -.6px; font-weight: 650; }
+.p1-section-mark { display: grid; place-items: center; width: 38px; height: 38px; border: 1px solid #dde6dc; border-radius: 50%; color: #4e6958; font-size: 24px; }
+.p1-section-description { margin: 12px 0 24px; color: #69766d; font-size: 14px; line-height: 1.6; }
+.p1-search-slot { margin-bottom: 16px; }
+.p1-table-slot { width: 100%; overflow-x: auto; }
+.p1-placeholder { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 10px; padding: 18px 12px; border: 1px dashed #c7d4c9; border-radius: 8px; color: #617465; background: #f9fbf7; text-align: center; }
+.p1-placeholder strong { font-size: 13px; font-weight: 600; }
+.p1-placeholder > span:last-child { font-size: 12px; color: #687568; }
+.p1-placeholder-symbol { color: #68806c; font-size: 20px; }
+.p1-placeholder-large { flex-direction: column; flex-wrap: nowrap; min-height: 196px; gap: 6px; }
+.p1-placeholder-large .p1-placeholder-symbol { display: grid; place-items: center; width: 37px; height: 37px; border: 1px solid #dfe7db; border-radius: 9px; margin-bottom: 6px; }
+.p1-footer { border-top: 1px solid #dce4de; color: #657269; }
+.p1-footer-content { display: flex; align-items: center; justify-content: space-between; gap: 20px; padding-block: 24px; font-size: 12px; }
+.p1-footer a { color: #3e5d4c; }
+.p1-skip-link { position: absolute; top: -100px; left: 16px; padding: 12px 18px; z-index: 10; color: #fff; background: #19312d; }
+.p1-skip-link:focus { top: 12px; }
+
+@media (max-width: 900px) {
+  .p1-container { width: calc(100% - 40px); }
+  .p1-hero { gap: 24px; padding-block: 44px; }
+  .p1-hero-note { flex-basis: 220px; padding-left: 24px; }
+  .p1-hero-note p { font-size: 22px; }
+  .p1-workspace { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 620px) {
+  .p1-container { width: calc(100% - 32px); }
+  .p1-navbar { min-height: auto; padding-block: 18px; flex-wrap: wrap; gap: 18px; }
+  .p1-nav-links { width: 100%; justify-content: space-between; gap: 10px; }
+  .p1-nav-links a { font-size: 12px; }
+  .p1-nav-links .p1-nav-register { padding: 9px 11px; }
+  .p1-hero { display: block; padding-block: 36px; }
+  .p1-hero h1 { letter-spacing: -1.3px; }
+  .p1-intro { font-size: 14px; }
+  .p1-hero-note { display: none; }
+  .p1-panel { padding: 20px; }
+  .p1-panel h2 { font-size: 21px; }
+  .p1-placeholder { gap: 7px; }
+  .p1-main { padding-bottom: 32px; }
+  .p1-footer-content { align-items: flex-start; flex-direction: column; gap: 10px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html:root { scroll-behavior: auto; }
+}
